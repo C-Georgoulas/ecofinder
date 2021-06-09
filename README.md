@@ -1,0 +1,1 @@
+Currently in the process of learning next.js and combining it with my current knowledge of MongoDB. Excuse any errors, this is a work in progress unfinished project. Feel free to check out HealthServicesSystem repository instead!
