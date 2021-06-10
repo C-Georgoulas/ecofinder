@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
   height: 100%;
   margin: 0;
@@ -9,4 +9,11 @@ body {
 }
 #map {
   height: 100%;
+} */
+
+.alert {
+  top: 60px;
+  right: 35%;
+  position: absolute;
+  padding: 20px;
 }

@@ -14,9 +14,9 @@ const PlaceSchema = new Schema({
   verified: {
     type: Boolean,
   },
-   description: {
+  description: {
     type: String,
   },
 });
 
-module.exports = mongoose.models.Place || mongoose.model('Place', PlaceSchema);
+module.exports = mongoose.models.Place || mongoose.model("Place", PlaceSchema);
