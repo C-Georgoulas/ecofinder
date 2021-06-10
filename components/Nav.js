@@ -8,6 +8,12 @@ const Nav = () => {
         <li>
           <Link href='/'>Home</Link>
         </li>
+        <li>
+          <Link href='/maps'>Maps</Link>
+        </li>
+        <li>
+          <Link href='/news'>News</Link>
+        </li>
         {/* <li>
           <Link href='/about'>About</Link>
         </li> */}

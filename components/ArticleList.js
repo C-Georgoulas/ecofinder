@@ -8,8 +8,8 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import Container from '@material-ui/core/Container';
 import Nav from './Nav'
+import Link from 'next/link'
 
-// import tileData from './tileData';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,23 +28,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
 export default function ArticleList({articles}) {
   const classes = useStyles();
 
@@ -64,9 +47,15 @@ export default function ArticleList({articles}) {
               title={article.title}
               subtitle={<span>by: {article.author}</span>}
               actionIcon={
-                <IconButton aria-label={`info about ${article.title}`} className={classes.icon}>
+                <>
+                <Link href={article.url} passHref={true}>
+                <IconButton 
+                aria-label={`info about ${article.title}`} 
+                className={classes.icon}>
                   <InfoIcon />
                 </IconButton>
+                </Link>
+                </>
               }
             />
           </GridListTile>
