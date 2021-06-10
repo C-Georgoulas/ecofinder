@@ -20,7 +20,7 @@ export default function Home({ articles }) {
   </div>
 </div>
 </Link>
-<Link href='/test2'>
+<Link href='/news'>
 <div class="max-w-sm rounded overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 cursor-pointer	">
   <img class="object-contain h-48 w-full" src="https://magazineclonerepub.blob.core.windows.net/mcepub/2535/177722/image/dcd9baf5-5805-4b90-a7bf-36b5f08cd9e0.jpg" alt="Sunset in the mountains"></img>
   <div class="px-6 py-4">

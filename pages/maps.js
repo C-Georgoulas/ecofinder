@@ -22,7 +22,6 @@ export default function GoogleMaps({ places }) {
         defaultCenter={{ lat: 55.6761, lng: 12.5683 }}
         defaultZoom={14}
         yesIWantToUseGoogleMapApiInternals
-        onClick={() => setLocationInfo(null)}
         // onGoogleApiLoaded={({ map, maps }) => ModelsMap(map, maps)}
       >
        {places && places.map((place) => (
@@ -34,7 +33,10 @@ export default function GoogleMaps({ places }) {
         onClick={() => setLocationInfo({id: place._id, name: place.name, description: place.description, clicked: true})}/>
         ))}
       </GoogleMapReact>
+      <div         onClick={() => setLocationInfo(null)}
+>
       {locationInfo && <LocationInfoBox info={locationInfo} />}
+      </div>
     </div>
     </>
   );
