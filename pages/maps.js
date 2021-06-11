@@ -14,15 +14,15 @@ import Button from "@material-ui/core/Button";
 import CloseIcon from "@material-ui/icons/Close";
 import styles from "../styles/Maps.module.css";
 
-export default function GoogleMaps({ places }) {
+export default function GoogleMaps({ places, locations }) {
   const [locationInfo, setLocationInfo] = useState(null);
   const [open, setOpen] = useState(true);
 
   return (
     <>
       {/* <Header/> */}
+      <Nav />
       <div style={{ height: "100vw", width: "100%" }}>
-        <Nav />
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyCzUM0Q4A_eblQI6SKATy2gOBkt6byFsnA" }}
           defaultCenter={{ lat: 55.6761, lng: 12.5683 }}
@@ -46,6 +46,21 @@ export default function GoogleMaps({ places }) {
                   })
                 }
               />
+            ))}
+            {locations &&
+            locations.map((location) => (
+              <LocationMarker
+              key={location.venue.id}
+              lat={location.venue.location.lat}
+              lng={location.venue.location.lng}
+              name={location.venue.name}
+              onClick={() =>
+                setLocationInfo({
+                  id: location.venue.id,
+                  name: location.venue.name,
+                })
+              }
+            />
             ))}
         </GoogleMapReact>
         <div onClick={() => setLocationInfo(null)}>
@@ -78,11 +93,15 @@ export default function GoogleMaps({ places }) {
 
 export const getStaticProps = async () => {
   const res = await fetch(`${server}/api/locations`);
+  const res2 = await fetch('https://api.foursquare.com/v2/venues/explore?client_id=R3IILPL0D3VGXAUHYMVJ0FPX4Z2UOXWUBZXDTILSXA3GJK1G&client_secret=N425VQMWBN4RH43YJPG3YQDX132ZLJRXQ1KFW1Q5C1XLRLV3&v=20180323&limit=10&ll=55.6761,12.5683&query=vegan');
   const places = await res.json();
-  console.log(places);
+  const places2 = await res2.json();
+  const locations = places2.response.groups[0].items
+  console.log(locations);
   return {
     props: {
       places,
+      locations,
     },
   };
 };
