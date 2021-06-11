@@ -58,6 +58,7 @@ export default function GoogleMaps({ places, locations }) {
                 setLocationInfo({
                   id: location.venue.id,
                   name: location.venue.name,
+                  description: location.venue.categories[0].name
                 })
               }
             />
